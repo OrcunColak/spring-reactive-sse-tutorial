@@ -1,4 +1,4 @@
-package com.colak.springreactivessetutorial.model;
+package com.colak.springreactivessetutorial.gamestreaming.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

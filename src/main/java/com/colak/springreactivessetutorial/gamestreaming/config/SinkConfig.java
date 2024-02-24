@@ -1,6 +1,6 @@
-package com.colak.springreactivessetutorial.config;
+package com.colak.springreactivessetutorial.gamestreaming.config;
 
-import com.colak.springreactivessetutorial.model.Game;
+import com.colak.springreactivessetutorial.gamestreaming.model.Game;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import reactor.core.publisher.Flux;
@@ -9,13 +9,13 @@ import reactor.core.publisher.Sinks;
 @Configuration
 public class SinkConfig {
     @Bean
-    public Sinks.Many<Game> sink() {
+    public Sinks.Many<Game> gameSink() {
         // Sinks.Many is a specialized Sink that can have multiple subscribers.
         return Sinks.many()
                 // The replay().limit(1) part means that it will replay the last emitted element (due to limit(1))
                 // to any late subscribers.
                 .replay()
-                .limit(1);
+                .limit(2);
     }
 
     @Bean
